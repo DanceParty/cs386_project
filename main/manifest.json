@@ -1,0 +1,29 @@
+/*
+**	The manifest file is a metadata file that contains
+**	properties that are relevant to our extension such  as
+**	description/name/permissions/functionality
+**
+**	<-- John Dance, Herbie Duah, Cameron Gaskin -->
+*/
+
+
+
+{
+	"manifest_version": 2,
+
+	"name": "Software Engineering Project",
+	"description": "This extention will recognize a song in a Youtube video then search and add it to a chosen Spotify playlist",
+	"version": "1.0",
+
+	"browser_action": {
+/*		"default_icon": "icon.png",	//this will be the small icon displayed in top right
+*/		"default_popup": "templates/popup.html",	//this will be the box that drops down when you click on icon
+		"default_title": "Omar Badreddin"
+	},
+
+	"permissions": [
+		"activeTab",
+		"https://ajax.googleapis.com/"
+	]
+}
+

@@ -1,0 +1,52 @@
+<!doctype html>
+<!--
+
+  This is the popup window html template we will need to customize
+ 
+ -->
+<html>
+  <head>
+    <title>Software Engineering Project</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #header {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="../static/js/popup.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="header">
+        <h2>Spotify/Youtube</h2>
+      </div>
+      <div class="content">
+        <p>
+          <form id="url">
+            URL: <input type="text" placeholder"youtube-url" />
+          </form>
+        </p>
+      </div>
+      <!--<div id="status">
+        hellohellohello
+      </div>
+      <img id="image-result" hidden>-->
+      <small>signed in as: xxxxxxxx</small>
+    </div>
+  </body>
+</html>
+
