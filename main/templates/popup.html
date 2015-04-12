@@ -12,17 +12,21 @@
       html {
         background-color: #e6e6e6;
         height: auto;
-        width: 500px;
+        width: 300px;
 
       }
 
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
-        border-style: solid;
-        border-width: 2px;
+       /* border-style: solid;
+        border-width: 2px;*/
         border-color: #000000;
         text-align: center;
+      }
+
+      input {
+        width: 230px;
       }
 
       .content {
@@ -33,7 +37,7 @@
       .container {
         border-style: solid;
         border-width: 3px;
-        border-color: #e52d27;
+        border-color: #82b919;
       }
 
       #header {
@@ -53,39 +57,15 @@
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
     <script src="../static/js/popup.js"></script>
-    <script type="text/javascript" src="../static/js/scripts.js"></script>
   </head>
   <body>
-    <div class="container">
-      <div class="content">
-        <div id="header">
-        <p>
-        <h2>Enter your link below:</h2>
-          <center><img src="../static/images/youtube/YouTube-logo-full_color.png" height="100"></center>
-        </p>
-        </div>
-        <div class="content">
-        <p>
-            <form id="URL">
-              <input type="text" name="URL" placeholder="YouTube URL here" style="width: 300px; height: 25px;">
-              <button><input type="submit" value="Submit"></button>
+    
+            <form id="user">
+              <input type="text" name="Youtube link" placeholder="Copy and paste youtube link">
             </form>
-            <?php
-              exec('python /../scripts/aidmatch.py');
-            ?>
             </br>
-          </p>
-          <!--<a href="#"><img src="../static/images/spotifyofficial/Badges/png/listen_on_spotify-black.png"></a>-->
-          </br>
-          </br>
-        </div>
-        <!--<div id="status">
-          hellohellohello
-        </div>
-        <img id="image-result" hidden>-->
-        
-      </div>
-    </div>
+        <button type="button">Spotify link</button>
+          
   </body>
 </html>
 
