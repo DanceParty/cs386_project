@@ -17,7 +17,7 @@ $(function() {
           return;
         }
         $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+videoid+'?v=2&alt=jsonc',function(data,status,xhr){
-     alert(data.data.title);
+     $("#para").append(data.data.title);
 });
          // $("<h1></h1>").text(data.data.title).appendTo("#video-data-1");
           });
