@@ -9,19 +9,63 @@ $(function() {
         $("#video-data-1, #video-data-2").empty();
         var videoid = $("#search-txt").val();
         var matches = videoid.match(/^http:\/\/www\.youtube\.com\/.*[?&]v=([^&]+)/i) || videoid.match(/^http:\/\/youtu\.be\/([^?]+)/i) || videoid.match(/^https:\/\/www\.youtube\.com\/.*[?&]v=([^&]+)/i) || videoid.match(/^https:\/\/youtu\.be\/([^?]+)/i);
-        if (matches) {
+        //Test 1
+		if (matches) {
           videoid = matches[1];
         }
+		//Test 2
         if (videoid.match(/^[a-z0-9_-]{11}$/i) === null) {
           $("<p style='color: #F00;'>Unable to parse Video ID/URL.</p>").appendTo("#video-data-1");
           return;
         }
         $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+videoid+'?v=2&alt=jsonc',function(data,status,xhr){
-     $("#para").append(data.data.title);
+		
+		
+		 var sanitizeTitle = function(title){
+						var _has = function(char) { return title.indexOf(char) !== -1 }
+						var cleanTitle = title;
+						if (_has('(') || _has('[') || _has('{')){
+							var matches = title.match(/\(.*\)|\[.*\]|\{.*\}/);
+							if (matches.length > 0) {
+								for ( var i in matches ){
+									cleanTitle = title.replace(/\(.*\)|\[.*\]|\{.*\}/, '').replace(/ - /, ' ').replace(/-/, ' ');
+								}
+							}
+						}
+						return cleanTitle;
+					};
+					
+		
+		var songTitle = sanitizeTitle(data.data.title);
+		//Test 3
+		if (songTitle === data.data.title) {
+            return; 
+        }
+		var url1 = 'https://api.spotify.com/v1/search?type=track&query=' + songTitle;
+		var url2 = url.split(' ').join('+');		
+		
+		//Test 4
+		if(url1 === url2){
+			return;
+		}
+		
+		$.get(url, function(data){
+			var spotifyResponse = data;
+			var link = data.tracks.items[0].uri;
+			
+			$("#para").append("<a href='" + link +"' target='_blank' class='spotifyLink' > Open in Spotify</a>");
+			
+			//Test 5
+			if( link === null){
+				return;
+			}
+		});
+		//$("#para").append(link);
 });
          // $("<h1></h1>").text(data.data.title).appendTo("#video-data-1");
           });
  });
+
 
 // chrome.extension.sendMessage({}, function(response) {
 //   var readyStateCheckInterval = setInterval(function() {
