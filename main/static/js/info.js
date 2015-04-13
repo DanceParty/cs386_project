@@ -8,7 +8,7 @@ $(function() {
       $("#search-btn").on("click", function() {
         $("#video-data-1, #video-data-2").empty();
         var videoid = $("#search-txt").val();
-        var matches = videoid.match(/^http:\/\/www\.youtube\.com\/.*[?&]v=([^&]+)/i) || videoid.match(/^http:\/\/youtu\.be\/([^?]+)/i);
+        var matches = videoid.match(/^http:\/\/www\.youtube\.com\/.*[?&]v=([^&]+)/i) || videoid.match(/^http:\/\/youtu\.be\/([^?]+)/i) || videoid.match(/^https:\/\/www\.youtube\.com\/.*[?&]v=([^&]+)/i) || videoid.match(/^https:\/\/youtu\.be\/([^?]+)/i);
         if (matches) {
           videoid = matches[1];
         }
