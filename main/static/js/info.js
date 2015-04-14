@@ -52,7 +52,7 @@ $(function() {
 			var link = data.tracks.items[0].uri;
 			
 			$("#para").append("<center>" + songTitle + "</br>");
-			$("#para").append("<a href='" + link +"' target='_blank'> Open in Spotify</a></center>");
+			$("#para").append("<a href='" + link +"' target='_blank'><img src='../static/images/spotifyofficial/Badges/png/listen_on_spotify-green.png'></a></center>");
 			
 			//Test 5
 			if( link === null){
