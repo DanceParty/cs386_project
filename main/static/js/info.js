@@ -19,7 +19,6 @@ $(function() {
           return;
         }
         $.getJSON('http://gdata.youtube.com/feeds/api/videos/'+videoid+'?v=2&alt=jsonc',function(data,status,xhr){
-<<<<<<< HEAD
 		
 		
 		 var sanitizeTitle = function(title){
@@ -62,9 +61,9 @@ $(function() {
 			}
 		});
 		//$("#para").append(link);
-=======
+
      $("#song").append(data.data.title);
->>>>>>> origin/master
+
 });
          // $("<h1></h1>").text(data.data.title).appendTo("#video-data-1");
           });
