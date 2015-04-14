@@ -56,7 +56,6 @@ $(function() {
 			
 			//Test 5
 			if( link === null){
-				return;
 			}
 		});
 		
