@@ -51,7 +51,8 @@ $(function() {
 			var spotifyResponse = data;
 			var link = data.tracks.items[0].uri;
 			
-			$("#para").append("<a href='" + link +"' target='_blank'> Open in Spotify</a>");
+			$("#para").append("<center>" + songTitle + "</br>");
+			$("#para").append("<a href='" + link +"' target='_blank'> Open in Spotify</a></center>");
 			
 			//Test 5
 			if( link === null){
