@@ -60,7 +60,6 @@ $(function() {
 		});
 		
 });
-         $("#para").append("<a href='" + link +"' target='_blank'> Open in Spotify</a>"); 
          
 });
           
