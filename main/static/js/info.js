@@ -51,19 +51,22 @@ $(function() {
 		var wiki = feelingLucky + songTitle + "wikipedia";
 		$.get(url, function(data){
 			var spotifyResponse = data;
+			
+			$("#para").append("<a href='" + lyric +"' target='_blank'>LYRICS</a></center>");
+			$("#para").append("<a href='" + wiki +"' target='_blank'>WIKIPEDIA</a></center>");
+			
 			var link = data.tracks.items[0].uri;
 			
 			$("#para").append("<center>" + songTitle + "</br>");
 			$("#para").append("<a href='" + link +"' target='_blank'><img src='../static/images/spotifyofficial/Badges/png/listen_on_spotify-green.png'></a></center>");
 			
-			$("#para").append("<a href='" + lyric +"' target='_blank'>LYRICS</a></center>");
-			$("#para").append("<a href='" + wiki +"' target='_blank'>WIKIPEDIA</a></center>");
 			
 			
 			//Test 5
-			if( link === null){
+			if( data.tracks.items.length === 0){
 				alert("Song is not recognized on Spotify");
 			}
+			
 		});
 		
 });
