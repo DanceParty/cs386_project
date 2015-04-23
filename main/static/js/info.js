@@ -22,6 +22,7 @@ $(function() {
 		 var sanitizeTitle = function(title){
 						var _has = function(char) { return title.indexOf(char) !== -1 }
 						var cleanTitle = title;
+						
 						if (_has('(') || _has('[') || _has('{')){
 							var matches = title.match(/\(.*\)|\[.*\]|\{.*\}/);
 							if (matches.length > 0) {
@@ -30,6 +31,8 @@ $(function() {
 								}
 							}
 						}
+						var c = title.indexOf('(');
+						cleanTitle = cleanTitle.slice(0,c);
 						return cleanTitle;
 					};
 					
@@ -51,19 +54,21 @@ $(function() {
 		var wiki = feelingLucky + songTitle + "wikipedia";
 		$.get(url, function(data){
 			var spotifyResponse = data;
+			
+			$("#para").append("<center><a href='" + lyric +"' target='_blank'><img src='../static/images/rapgenius.png' height='66'></a>");
+			$("#para").append("<a href='" + wiki +"' target='_blank'><img src='../static/images/wikipedia.png' height='66'></a></center>");
+			
+			if( data.tracks.items.length === 0){
+				alert("Song is not recognized on Spotify");
+			}
 			var link = data.tracks.items[0].uri;
 			
 			$("#song").append("<center>" + songTitle + "</br></center>");
 			$("#para").append("<center><a href='" + link +"' target='_blank'><img src='../static/images/spotifyofficial/Badges/png/listen_on_spotify-green.png'></a></center></br>");
 			
-			$("#para").append("<center><a href='" + lyric +"' target='_blank'><img src='../static/images/rapgenius.png' height='66'></a>");
-			$("#para").append("<a href='" + wiki +"' target='_blank'><img src='../static/images/wikipedia.png' height='66'></a></center>");
-			
 			
 			//Test 5
-			if( link === null){
-				alert("Song is not recognized on Spotify");
-			}
+			
 		});
 		
 });
