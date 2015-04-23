@@ -62,6 +62,7 @@ $(function() {
 			
 			//Test 5
 			if( link === null){
+				alert("Song is not recognized on Spotify");
 			}
 		});
 		
