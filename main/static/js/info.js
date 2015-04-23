@@ -53,11 +53,11 @@ $(function() {
 			var spotifyResponse = data;
 			var link = data.tracks.items[0].uri;
 			
-			$("#para").append("<center>" + songTitle + "</br>");
-			$("#para").append("<a href='" + link +"' target='_blank'><img src='../static/images/spotifyofficial/Badges/png/listen_on_spotify-green.png'></a></center>");
+			$("#song").append("<center>" + songTitle + "</br></center>");
+			$("#para").append("<center><a href='" + link +"' target='_blank'><img src='../static/images/spotifyofficial/Badges/png/listen_on_spotify-green.png'></a></center>");
 			
-			$("#para").append("<a href='" + lyric +"' target='_blank'>LYRICS</a></center>");
-			$("#para").append("<a href='" + wiki +"' target='_blank'>WIKIPEDIA</a></center>");
+			$("#para").append("<center></br><a href='" + lyric +"' target='_blank'><img src='../static/images/rapgenius.png' height='66'></a></center>");
+			$("#para").append("<center></br><a href='" + wiki +"' target='_blank'><img src='../static/images/wikipedia.png' height='66'></a></center>");
 			
 			
 			//Test 5
