@@ -55,16 +55,23 @@ $(function() {
 		$.get(url, function(data){
 			var spotifyResponse = data;
 			
-			$("#para").append("<center><a href='" + lyric +"' target='_blank'><img src='../static/images/rapgenius.png' height='66'></a>");
-			$("#para").append("<a href='" + wiki +"' target='_blank'><img src='../static/images/wikipedia.png' height='66'></a></center>");
-			
 			if( data.tracks.items.length === 0){
-				alert("Song is not recognized on Spotify");
+				alert(songTitle+"is not recognized on Spotify");
+				var link = data.tracks.items[0].uri;
+			$("#para").append("<a href='" + lyric +"' target='_blank'><img src='../static/images/GoToSongLyrics.png' height='66'></a>");
+			$("#para").append("<a href='" + wiki +"' target='_blank'><img src='../static/images/GoToWikiPedia.png' height='66'></a>");
 			}
-			var link = data.tracks.items[0].uri;
 			
-			$("#song").append("<center>" + songTitle + "</br></center>");
-			$("#para").append("<center><a href='" + link +"' target='_blank'><img src='../static/images/spotifyofficial/Badges/png/listen_on_spotify-green.png'></a></center></br>");
+			else{
+				var link = data.tracks.items[0].uri;
+			$("#song").append("<center>" + songTitle + "</center>");
+			$("#para").append("<center><a href='" + lyric +"' target='_blank'><img src='../static/images/GoToSongLyrics.png' height='66'></a>");
+			$("#para").append("<a href='" + wiki +"' target='_blank'><img src='../static/images/GoToWikiPedia.png' height='66'></a>");
+			$("#para").append("<a href='" + link +"' target='_blank'><img src='../static/images/ListenOnSpotify.png' height='66'></a></center>");
+			}
+			
+		
+		
 			
 			
 			//Test 5
